@@ -20,6 +20,7 @@ export default {
   },
   mixins: [utils],
   created () {
+    console.log('组件钩子被调用')
     this.$on('on-dispatch', (val) => {
       console.log('到达了')
       console.log(val)

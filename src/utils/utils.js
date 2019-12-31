@@ -22,6 +22,9 @@ function $dispatch (componentName, eventName, value) {
 }
 
 export default {
+  created () {
+    console.log('混入对象的钩子被调用')
+  },
   methods: {
     broadcast (componentName, eventName, value) {
       $broadcast.call(this, componentName, eventName, value)
