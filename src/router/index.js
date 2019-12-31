@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
+import IButton from '@/views/Button.vue'
+import ComTest from '@/views/ComTest.vue'
+const FormTest = () => import('@/views/FormTest.vue')
 
 Vue.use(VueRouter)
 
@@ -17,6 +20,21 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+  },
+  {
+    path: '/button',
+    name: 'button',
+    component: IButton
+  },
+  {
+    path: '/comTest',
+    name: 'ComTest',
+    component: ComTest
+  },
+  {
+    path: '/formTest',
+    name: 'FormTest',
+    component: FormTest
   }
 ]
 

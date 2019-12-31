@@ -2,11 +2,38 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <router-link to="/button">Button</router-link> |
+      <router-link to="/comTest">ComTest</router-link> |
+      <router-link to="/formTest">FormTest</router-link> |
     </div>
     <router-view/>
   </div>
 </template>
+
+<script>
+import mixin from './views/mixins/mixin'
+
+export default {
+  mixins: [mixin],
+  name: 'App组件',
+  provide () {
+    return {
+      app: this
+    }
+  },
+  data () {
+    return {
+      title: 'App.vue'
+    }
+  },
+  methods: {
+    sayHello () {
+      console.log(this.title)
+    }
+  }
+}
+</script>
 
 <style lang="less">
 #app {
