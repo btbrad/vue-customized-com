@@ -1,8 +1,8 @@
 <template>
   <div>
     <h2>form表单</h2>
-    <i-form>
-      <i-form-item label="姓名">
+    <i-form :model="form" :rules="rules">
+      <i-form-item label="姓名" prop="name">
         <i-input v-model="form.name" />
       </i-form-item>
     </i-form>
@@ -26,7 +26,9 @@ export default {
       form: {
         name: ''
       },
-      rules: {}
+      rules: {
+        name: { required: true, message: '请输入姓名', trigger: 'blur' }
+      }
     }
   },
   methods: {

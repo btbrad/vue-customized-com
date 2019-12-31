@@ -7,6 +7,11 @@
 <script>
 export default {
   name: 'IForm',
+  provide () {
+    return {
+      form: this
+    }
+  },
   props: {
     model: {
       type: Object,
