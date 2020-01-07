@@ -7,10 +7,10 @@
 </template>
 
 <script>
-import utils from '@/utils/utils'
+import emitter from '@/utils/emitter'
 export default {
   name: 'grandChild',
-  mixins: [utils],
+  mixins: [emitter],
   created () {
     this.$on('on-message', (val) => {
       console.log('111111', val)

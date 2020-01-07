@@ -8,7 +8,7 @@
 
 <script>
 import ComponentA from '@/components/componentA.vue'
-import utils from '@/utils/utils'
+import emitter from '@/utils/emitter'
 
 export default {
   name: 'ComTest',
@@ -18,7 +18,7 @@ export default {
   components: {
     ComponentA
   },
-  mixins: [utils],
+  mixins: [emitter],
   created () {
     console.log('组件钩子被调用')
     this.$on('on-dispatch', (val) => {

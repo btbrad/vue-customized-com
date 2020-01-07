@@ -5,6 +5,9 @@
       <i-form-item label="姓名" prop="name">
         <i-input v-model="form.name" />
       </i-form-item>
+      <i-form-item label="密码" prop="password">
+        <i-input type="password" v-model="form.password" />
+      </i-form-item>
     </i-form>
   </div>
 </template>
@@ -27,7 +30,12 @@ export default {
         name: ''
       },
       rules: {
-        name: { required: true, message: '请输入姓名', trigger: 'blur' }
+        name: [
+          { required: true, message: '请输入姓名', trigger: ['blur', 'change'] }
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: ['blur', 'change'] }
+        ]
       }
     }
   },

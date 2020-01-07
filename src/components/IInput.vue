@@ -1,32 +1,44 @@
 <template>
   <div class="i-inpout">
-    <input :value="value" type="text" @input="handleInput" @blur="handleBlur"/>
+    <input :value="currentValue" :type="type" @input="handleInput" @blur="handleBlur"/>
   </div>
 </template>
 
 <script>
-import utils from '@/utils/utils.js'
+import emitter from '@/utils/emitter.js'
 
 export default {
   name: 'IInput',
   data () {
     return {
-
+      currentValue: this.value
     }
   },
   props: {
     value: {
       type: String,
       default: ''
+    },
+    type: {
+      type: String,
+      default: 'text'
     }
   },
-  mixins: [utils],
+  mixins: [emitter],
+  watch: {
+    value (val) {
+      this.currentValue = val
+    }
+  },
   methods: {
     handleInput (event) {
-      this.$emit('input', event.target.value)
+      let val = event.target.value
+      this.currentValue = val
+      this.$emit('input', val)
+      this.dispatch('IFormItem', 'on-item-change', val)
     },
-    handleBlur (event) {
-      this.dispatch('IFormItem', 'on-item-blur', event.target.value)
+    handleBlur () {
+      this.dispatch('IFormItem', 'on-item-blur', this.currentValue)
     }
   }
 }
