@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>form表单</h2>
-    <i-form :model="form" :rules="rules">
+    <i-form ref="form" :model="form" :rules="rules">
       <i-form-item label="姓名" prop="name">
         <i-input v-model="form.name" />
       </i-form-item>
@@ -9,6 +9,8 @@
         <i-input type="password" v-model="form.password" />
       </i-form-item>
     </i-form>
+    <button @click="handleSubmit">提交</button>
+    <button @click="handleReset">重置</button>
   </div>
 </template>
 
@@ -31,15 +33,29 @@ export default {
       },
       rules: {
         name: [
-          { required: true, message: '请输入姓名', trigger: ['blur', 'change'] }
+          { required: true, message: '请输入姓名' }
         ],
         password: [
-          { required: true, message: '请输入密码', trigger: ['blur', 'change'] }
+          { required: true, message: '请输入密码' }
         ]
       }
     }
   },
   methods: {
+    handleSubmit () {
+      this.$refs.form.validate(valid => {
+        console.log(valid)
+        if (valid) {
+          console.log('success')
+        } else {
+          console.log('error')
+        }
+      })
+    },
+    handleReset () {
+      this.$refs.form.resetFields()
+    }
+
   }
 }
 </script>

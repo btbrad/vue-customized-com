@@ -46,17 +46,20 @@ export default {
       return new Promise(resolve => {
         let valid = true
         let count = 0
-        this.fields.forEach('', errors => {
-          if (errors) {
-            valid = false
-          }
-          if (++count === this.fields.length) {
-            //  全部完成
-            resolve(valid)
-            if (typeof callback === 'function') {
-              callback(valid)
+        this.fields.forEach(field => {
+          console.log(field)
+          field.validate('', errors => {
+            if (errors) {
+              valid = false
             }
-          }
+            if (++count === this.fields.length) {
+            //  全部完成
+              resolve(valid)
+              if (typeof callback === 'function') {
+                callback(valid)
+              }
+            }
+          })
         })
       })
     }

@@ -60,6 +60,10 @@ export default {
     },
     getFilteredRule (trigger) {
       const rules = this.getRules()
+      console.log('当前字段的规则', rules)
+      /**
+       * 如果没指定trigger, 则所有事件都会触发该规则
+       */
       return rules.filter(rule => !rule.trigger || rule.trigger.indexOf(trigger) !== -1)
     },
     setRules () {
@@ -76,7 +80,7 @@ export default {
     validate (trigger, callback = () => {}) {
       console.log(trigger)
       let rules = this.getFilteredRule(trigger)
-      console.log(rules)
+      console.log(trigger + '的规则', rules)
       if (!rules || rules.length === 0) {
         return true
       }
