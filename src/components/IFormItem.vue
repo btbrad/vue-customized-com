@@ -97,7 +97,7 @@ export default {
         callback(this.errorMsg)
       })
     },
-    // 重置数据
+    // 重置数据 并不是清空数据 充值数据是把表单恢复到初始状态
     resetField () {
       this.validateState = ''
       this.errorMsg = ''
