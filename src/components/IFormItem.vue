@@ -66,6 +66,7 @@ export default {
        */
       return rules.filter(rule => !rule.trigger || rule.trigger.indexOf(trigger) !== -1)
     },
+    // 获取校验规则 监听事件
     setRules () {
       let rules = this.getRules()
       if (rules.length) {
