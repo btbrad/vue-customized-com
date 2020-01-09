@@ -1,5 +1,5 @@
 <template>
-  <i-checkbox v-model="value"></i-checkbox>
+  <i-checkbox v-model="value" :trueValue="1" :falseValue="0" label="agreed" :disabled="true" ></i-checkbox>
 </template>
 
 <script>
@@ -12,7 +12,7 @@ export default {
   },
   data () {
     return {
-      value: true
+      value: 0
     }
   }
 }

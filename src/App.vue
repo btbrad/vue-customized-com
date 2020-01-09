@@ -6,7 +6,7 @@
       <router-link to="/button">Button</router-link> |
       <router-link to="/comTest">ComTest</router-link> |
       <router-link to="/formTest">FormTest</router-link> |
-      <router-link to="/checkboxTest">FormTest</router-link> |
+      <router-link to="/checkboxTest">CheckboxTest</router-link> |
     </div>
     <router-view/>
   </div>

@@ -8,6 +8,9 @@
       <i-form-item label="密码" prop="password">
         <i-input type="password" v-model="form.password" />
       </i-form-item>
+      <i-form-item label="是否同意" prop="agree">
+        <i-checkbox v-model="form.agree"></i-checkbox>
+      </i-form-item>
     </i-form>
     <button @click="handleSubmit">提交</button>
     <button @click="handleReset">重置</button>
@@ -18,19 +21,22 @@
 import IForm from '@/components/IForm.vue'
 import IFormItem from '@/components/IFormItem.vue'
 import IInput from '@/components/IInput.vue'
+import ICheckbox from '@/components/ICheckbox.vue'
 
 export default {
   name: 'FormTest',
   components: {
     IForm,
     IFormItem,
-    IInput
+    IInput,
+    ICheckbox
   },
   data () {
     return {
       form: {
         name: '',
-        password: ''
+        password: '',
+        agree: false
       },
       rules: {
         name: [
@@ -38,6 +44,9 @@ export default {
         ],
         password: [
           { required: true, message: '请输入密码' }
+        ],
+        agree: [
+          { required: true, message: '请勾选' }
         ]
       }
     }
