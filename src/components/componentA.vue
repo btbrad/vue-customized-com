@@ -11,7 +11,7 @@
 
 <script>
 import GrandChild from './grandChild'
-import { findComponentUpward } from '@/utils/assist.js'
+import { findComponentUpward, findComponentsUpward } from '@/utils/assist.js'
 export default {
   name: 'ComponentA',
   components: {
@@ -23,6 +23,8 @@ export default {
     })
     const parent = findComponentUpward(this, 'ComTest')
     parent.sayHi()
+    let arr = findComponentsUpward(this, 'ComTest')
+    console.log(arr)
   },
   inject: ['username', 'app'],
   data () {
