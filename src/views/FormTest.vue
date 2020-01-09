@@ -29,7 +29,8 @@ export default {
   data () {
     return {
       form: {
-        name: ''
+        name: '',
+        password: ''
       },
       rules: {
         name: [

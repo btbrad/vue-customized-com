@@ -25,11 +25,6 @@ export default {
     }
   },
   mixins: [emitter],
-  watch: {
-    value (val) {
-      this.currentValue = val
-    }
-  },
   methods: {
     handleInput (event) {
       let val = event.target.value
