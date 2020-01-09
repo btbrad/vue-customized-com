@@ -11,6 +11,7 @@
 
 <script>
 import GrandChild from './grandChild'
+import { findComponentUpward } from '@/utils/assist.js'
 export default {
   name: 'ComponentA',
   components: {
@@ -20,6 +21,8 @@ export default {
     this.$on('on-message', (val) => {
       console.log(val)
     })
+    const parent = findComponentUpward(this, 'ComTest')
+    parent.sayHi()
   },
   inject: ['username', 'app'],
   data () {

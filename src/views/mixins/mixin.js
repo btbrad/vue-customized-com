@@ -1,7 +1,7 @@
 export default {
   mounted () {
     this.sayBye()
-    console.log('mixin组件')
+    // console.log('mixin组件')
   },
   data () {
     return {
@@ -10,7 +10,7 @@ export default {
   },
   methods: {
     sayBye () {
-      console.log('Goodbye ' + this.title)
+      // console.log('Goodbye ' + this.title)
     }
   }
 }

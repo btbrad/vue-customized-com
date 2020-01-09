@@ -20,7 +20,7 @@ export default {
   },
   mixins: [emitter],
   created () {
-    console.log('组件钩子被调用')
+    // console.log('组件钩子被调用')
     this.$on('on-dispatch', (val) => {
       console.log('到达了')
       console.log(val)
@@ -34,15 +34,18 @@ export default {
   methods: {
     handleClick () {
       this.broadcast('grandChild', 'on-message', '我是ComTest')
+    },
+    sayHi () {
+      console.log(`我是${this.$options.name}`)
     }
   },
   mounted () {
-    const comA = this.$refs.comA
-    console.log('ref', comA)
-    console.log(comA.title) // vue.js
+    // const comA = this.$refs.comA
+    // console.log('ref', comA)
+    // console.log(comA.title) // vue.js
     // comA.sayHello() // 弹窗
-    console.log('父组件', this.$parent)
-    console.log('子组件', this.$children)
+    // console.log('父组件', this.$parent)
+    // console.log('子组件', this.$children)
   }
 }
 </script>
