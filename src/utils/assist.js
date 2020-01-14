@@ -49,3 +49,53 @@ export const findComponentsUpward = (context, componentName) => {
   // }
   // return res
 }
+
+/**
+ * 由一個組件，向下找到最近的指定的組件
+ */
+export const findComponentDownward = (context, componentName) => {
+  let children = context.$children
+  let com = null
+  for (let i = 0; i < children.length; i++) {
+    if (children[i].$options.name === componentName) {
+      com = children[i]
+      break
+    }
+    if (children[i].$children.length) {
+      com = findComponentDownward(children[i], componentName)
+    }
+  }
+  return com
+}
+
+/**
+ * 向下找到所有指定的组件
+ */
+export const findComponentsDownward = (context, componentName) => {
+  return context.$children.reduce((a, b) => {
+    if (b.$options.name === componentName) {
+      a.push(b)
+    }
+    const foundChildren = findComponentsDownward(b, componentName)
+    return a.concat(foundChildren)
+  }, [])
+}
+
+/**
+ * 找到指定组件的兄弟组件
+ */
+export const findBrotherComponents = (context, componentName, exceptMe = true) => {
+  let parent = context.$parent
+  let children = parent.$children
+  let bro = null
+  const res = children.filter(child => {
+    if (child.$options.name === componentName) {
+      bro = child
+    }
+  })
+  if (exceptMe) {
+    let index = res.findIndex(item => item._uid === context._uid)
+    res.splice(index, 1)
+  }
+  return bro
+}

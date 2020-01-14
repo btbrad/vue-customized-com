@@ -11,7 +11,7 @@
 
 <script>
 import GrandChild from './grandChild'
-import { findComponentUpward, findComponentsUpward } from '@/utils/assist.js'
+import { findComponentUpward, findComponentsUpward, findBrotherComponents } from '@/utils/assist.js'
 export default {
   name: 'ComponentA',
   components: {
@@ -25,6 +25,8 @@ export default {
     parent.sayHi()
     let arr = findComponentsUpward(this, 'ComTest')
     console.log(arr)
+    let arrBro = findBrotherComponents(this, 'ComponentA')
+    console.log('找到兄弟组件', arrBro)
   },
   inject: ['username', 'app'],
   data () {

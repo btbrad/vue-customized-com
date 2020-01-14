@@ -3,12 +3,14 @@
     <h2>ComTest</h2>
     <component-a ref="comA"></component-a>
     <button @click="handleClick">$broadcast</button>
+    <component-a ref="comA"></component-a>
   </div>
 </template>
 
 <script>
 import ComponentA from '@/components/componentA.vue'
 import emitter from '@/utils/emitter'
+import { findComponentDownward } from '@/utils/assist'
 
 export default {
   name: 'ComTest',
@@ -46,6 +48,8 @@ export default {
     // comA.sayHello() // 弹窗
     // console.log('父组件', this.$parent)
     // console.log('子组件', this.$children)
+    const res = findComponentDownward(this, 'grandChild')
+    console.log('findComponentDownward', res)
   }
 }
 </script>
