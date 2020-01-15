@@ -11,6 +11,7 @@
 import ComponentA from '@/components/componentA.vue'
 import emitter from '@/utils/emitter'
 import { findComponentDownward } from '@/utils/assist'
+import Alert from '@/test/alert.js'
 
 export default {
   name: 'ComTest',
@@ -27,6 +28,7 @@ export default {
       console.log('到达了')
       console.log(val)
     })
+    document.querySelector('#app').appendChild(Alert.$el)
   },
   data () {
     return {
