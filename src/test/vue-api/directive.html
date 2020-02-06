@@ -9,17 +9,24 @@
 <body>
 
   <div id="app">
-    <input type="text">
+    <input type="text" v-focus>
     <p>{{ msg }}</p>
   </div>
 
   <script src="../../../node_modules/vue/dist/vue.js"></script>
   <script>
+
+    Vue.directive('focus', {
+      inserted: function(el){
+        el.focus()
+      }
+    })
+
     let vm = new Vue({
       el: '#app',
       data() {
         return {
-          msg: 'hello'
+          msg: Vue.version
         }
       },
 

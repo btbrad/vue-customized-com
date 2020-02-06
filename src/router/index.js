@@ -5,6 +5,7 @@ import IButton from '@/views/Button.vue'
 import ComTest from '@/views/ComTest.vue'
 const FormTest = () => import('@/views/FormTest.vue')
 const CheckboxTest = () => import('@/views/CheckboxTest.vue')
+const DisplayTest = () => import('@/views/DisplayTest.vue')
 
 Vue.use(VueRouter)
 
@@ -41,6 +42,11 @@ const routes = [
     path: '/checkboxTest',
     name: 'CheckboxTest',
     component: CheckboxTest
+  },
+  {
+    path: '/displayTest',
+    name: 'DisplayTest',
+    component: DisplayTest
   }
 ]
 
