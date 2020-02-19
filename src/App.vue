@@ -8,6 +8,7 @@
       <router-link to="/formTest">FormTest</router-link> |
       <router-link to="/checkboxTest">CheckboxTest</router-link> |
       <router-link to="/displayTest">DisplayTest</router-link> |
+      <router-link to="/alertTest">AlertTest</router-link> |
     </div>
     <router-view/>
   </div>

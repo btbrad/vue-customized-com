@@ -6,6 +6,7 @@ import ComTest from '@/views/ComTest.vue'
 const FormTest = () => import('@/views/FormTest.vue')
 const CheckboxTest = () => import('@/views/CheckboxTest.vue')
 const DisplayTest = () => import('@/views/DisplayTest.vue')
+const AlertTest = () => import('@/views/AlertTest.vue')
 
 Vue.use(VueRouter)
 
@@ -47,6 +48,11 @@ const routes = [
     path: '/displayTest',
     name: 'DisplayTest',
     component: DisplayTest
+  },
+  {
+    path: '/alertTest',
+    name: 'AlertTest',
+    component: AlertTest
   }
 ]
 
