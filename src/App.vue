@@ -9,6 +9,8 @@
       <router-link to="/checkboxTest">CheckboxTest</router-link> |
       <router-link to="/displayTest">DisplayTest</router-link> |
       <router-link to="/alertTest">AlertTest</router-link> |
+      <router-link to="/renderTest">RenderTest</router-link> |
+      <router-link to="/CartTest">CartTest</router-link> |
     </div>
     <router-view/>
   </div>

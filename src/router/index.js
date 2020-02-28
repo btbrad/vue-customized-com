@@ -7,6 +7,8 @@ const FormTest = () => import('@/views/FormTest.vue')
 const CheckboxTest = () => import('@/views/CheckboxTest.vue')
 const DisplayTest = () => import('@/views/DisplayTest.vue')
 const AlertTest = () => import('@/views/AlertTest.vue')
+const RenderTest = () => import('@/test/render-test/render1.vue')
+const CartTest = () => import('@/views/CartTest.vue')
 
 Vue.use(VueRouter)
 
@@ -53,6 +55,16 @@ const routes = [
     path: '/alertTest',
     name: 'AlertTest',
     component: AlertTest
+  },
+  {
+    path: '/renderTest',
+    name: 'RenderTest',
+    component: RenderTest
+  },
+  {
+    path: '/CartTest',
+    name: 'CartTest',
+    component: CartTest
   }
 ]
 
