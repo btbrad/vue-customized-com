@@ -4,6 +4,7 @@ import router from './router'
 import store from './store'
 import Alert from '@/components/alert/alert.js'
 import Cart from '@/components/Cart/cart.js'
+import create from '@/utils/create.js'
 
 Vue.config.productionTip = false
 
@@ -14,6 +15,8 @@ Vue.config.performance = true
 Vue.prototype.$Alert = Alert
 
 Vue.prototype.$addToCart = Cart
+
+Vue.prototype.$create = create
 
 new Vue({
   router,

@@ -36,7 +36,9 @@ export default {
       const rect = this.el.getBoundingClientRect()
       // 转换为用于绝对定位的坐标
       const x = rect.left - window.innerWidth / 2
+      console.log('screen height', window.innerHeight)
       const y = -(window.innerHeight - rect.top - 10 - 20)
+      console.log('ball move origin position', x, y)
       // ball只移动y
       el.style.transform = `translate3d(0, ${y}px, 0)`
       // inner只移动x
@@ -45,14 +47,14 @@ export default {
     },
     enter (el, done) {
       // 获取offsetHeight就会重绘
-      const height = document.body.offsetHeight
-      console.log(height)
+      // eslint-disable-next-line no-unused-expressions
+      document.body.offsetHeight
 
       // 指定动画结束位置
-      el.style.tranform = `translate3d(0, 0, 0)`
+      el.style.transform = `translate3d(0, 0, 0)`
       const inner = el.querySelector('.inner')
-      inner.style.transform = `transition3d(0, 0, 0)`
-      el.addEventListenner('transitionend', done)
+      inner.style.transform = `translate3d(0, 0, 0)`
+      el.addEventListener('transitionend', done)
     },
     afterEnter (el) {
       // 动画结束, 开始清理工作
@@ -72,13 +74,20 @@ export default {
       bottom: 10px;
       z-index: 100000;
       color: red;
-      transition: all 0.5s cubic-bezier(0.49, -0.29, 0.75, 0.41);
+      transition: all 5s cubic-bezier(0.49, -0.29, 0.75, 0.41);
       .inner {
         width: 16px;
         height: 16px;
-        transition: all 0.5s linear;
+        transition: all 5s linear;
         .cubic-add {
           font-size: 22px;
+          background: #f40;
+          color: #fff;
+          border-radius: 50%;
+          height: 20px;
+          width: 20px;
+          line-height: 20px;
+          text-align: center;
         }
       }
     }
