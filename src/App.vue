@@ -11,6 +11,7 @@
       <router-link to="/alertTest">AlertTest</router-link> |
       <router-link to="/renderTest">RenderTest</router-link> |
       <router-link to="/CartTest">CartTest</router-link> |
+      <router-link to="/table">table</router-link> |
     </div>
     <router-view/>
   </div>

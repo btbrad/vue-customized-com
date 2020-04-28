@@ -20,7 +20,7 @@ Alert.newInstance = properties => {
   console.log('component', component.$el)
   document.body.appendChild(component.$el)
 
-  const alert = Instance.$children[0]
+  const alert = Instance.$children[0] // 这里的alert就是render函数里的那个Alert实例，为了使用这个实例里定义的方法 所以要拿到它
 
   return {
     add (noticeProps) {

@@ -9,6 +9,7 @@ const DisplayTest = () => import('@/views/DisplayTest.vue')
 const AlertTest = () => import('@/views/AlertTest.vue')
 const RenderTest = () => import('@/test/render-test/render1.vue')
 const CartTest = () => import('@/views/CartTest.vue')
+const TableRender = () => import('@/views/table-render.vue')
 
 Vue.use(VueRouter)
 
@@ -65,6 +66,11 @@ const routes = [
     path: '/CartTest',
     name: 'CartTest',
     component: CartTest
+  },
+  {
+    path: '/table',
+    name: 'TableRender',
+    component: TableRender
   }
 ]
 
