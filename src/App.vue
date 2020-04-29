@@ -12,6 +12,8 @@
       <router-link to="/renderTest">RenderTest</router-link> |
       <router-link to="/CartTest">CartTest</router-link> |
       <router-link to="/table">table</router-link> |
+      <router-link to="/slot-scoped">slot-scope</router-link> |
+      <router-link to="/table-slot">table-scope</router-link> |
     </div>
     <router-view/>
   </div>

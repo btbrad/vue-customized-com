@@ -5,6 +5,8 @@
 //   }
 // }
 
+// console.log('VNode', testCom)
+
 export default {
   data () {
     return {

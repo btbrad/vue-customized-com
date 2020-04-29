@@ -10,6 +10,8 @@ const AlertTest = () => import('@/views/AlertTest.vue')
 const RenderTest = () => import('@/test/render-test/render1.vue')
 const CartTest = () => import('@/views/CartTest.vue')
 const TableRender = () => import('@/views/table-render.vue')
+const TableSlot = () => import('@/views/table-slot.vue')
+const scopeTest = () => import('@/test/slotScopeTest/parent.vue')
 
 Vue.use(VueRouter)
 
@@ -71,6 +73,16 @@ const routes = [
     path: '/table',
     name: 'TableRender',
     component: TableRender
+  },
+  {
+    path: '/table-slot',
+    name: 'TableSlot',
+    component: TableSlot
+  },
+  {
+    path: '/slot-scoped',
+    name: 'scopeTest',
+    component: scopeTest
   }
 ]
 
