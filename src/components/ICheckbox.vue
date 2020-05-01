@@ -6,7 +6,7 @@
           v-if="group" type="checkbox" :value="label" v-model="model" :disabled="disabled" @change="handleChange">
         <input v-else type="checkbox" :checked="currentValue" :disabled="disabled" @change="handleChange">
       </span>
-      <slot><span>{{label}}</span></slot>
+      <slot></slot>
     </label>
   </div>
 </template>

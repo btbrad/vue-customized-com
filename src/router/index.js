@@ -14,6 +14,7 @@ const TableSlot = () => import('@/views/table-slot.vue')
 const scopeTest = () => import('@/test/slotScopeTest/parent.vue')
 const slotTest = () => import('@/test/slot/test.vue')
 const dynamicCom = () => import('@/test/dynamicCom/test.vue')
+const treeTest = () => import('@/views/treeTest.vue')
 
 Vue.use(VueRouter)
 
@@ -95,6 +96,11 @@ const routes = [
     path: '/dynamic',
     name: 'dynamicCom',
     component: dynamicCom
+  },
+  {
+    path: '/treeTest',
+    name: 'treeTest',
+    component: treeTest
   }
 ]
 
