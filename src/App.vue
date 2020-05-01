@@ -14,6 +14,8 @@
       <router-link to="/table">table</router-link> |
       <router-link to="/slot-scoped">slot-scope</router-link> |
       <router-link to="/table-slot">table-scope</router-link> |
+      <router-link to="/slot-test">slot-test</router-link> |
+      <router-link to="/dynamic">dynamicCom</router-link> |
     </div>
     <router-view/>
   </div>

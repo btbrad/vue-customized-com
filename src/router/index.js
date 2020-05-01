@@ -12,6 +12,8 @@ const CartTest = () => import('@/views/CartTest.vue')
 const TableRender = () => import('@/views/table-render.vue')
 const TableSlot = () => import('@/views/table-slot.vue')
 const scopeTest = () => import('@/test/slotScopeTest/parent.vue')
+const slotTest = () => import('@/test/slot/test.vue')
+const dynamicCom = () => import('@/test/dynamicCom/test.vue')
 
 Vue.use(VueRouter)
 
@@ -83,6 +85,16 @@ const routes = [
     path: '/slot-scoped',
     name: 'scopeTest',
     component: scopeTest
+  },
+  {
+    path: '/slot-test',
+    name: 'slotTest',
+    component: slotTest
+  },
+  {
+    path: '/dynamic',
+    name: 'dynamicCom',
+    component: dynamicCom
   }
 ]
 
