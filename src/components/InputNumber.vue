@@ -1,0 +1,39 @@
+<template>
+  <div>
+    <button @click="increase(-1)">-</button>
+    <span style="color: red;padding: 6px">{{ currentValue }}</span>
+    <button @click="increase(1)">+</button>
+  </div>
+</template>
+
+<script>
+export default {
+  name: 'InputNumber',
+  props: {
+    value: {
+      type: Number,
+      default: 0
+    }
+  },
+  data () {
+    return {
+      currentValue: this.value
+    }
+  },
+  watch: {
+    value (val) {
+      this.currentValue = val
+    }
+  },
+  methods: {
+    increase (val) {
+      this.currentValue += val
+      this.$emit('input', this.currentValue)
+    }
+  }
+}
+</script>
+
+<style>
+
+</style>

@@ -17,6 +17,7 @@
       <router-link to="/slot-test">slot-test</router-link> |
       <router-link to="/dynamic">dynamicCom</router-link> |
       <router-link to="/treeTest">treeTest</router-link> |
+      <router-link to="/inputNumberTest">InputNumberTest</router-link> |
     </div>
     <router-view/>
   </div>
