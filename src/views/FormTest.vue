@@ -40,13 +40,13 @@ export default {
       },
       rules: {
         name: [
-          { required: true, message: '请输入姓名' }
+          { required: true, message: '请输入姓名', trigger: 'blur' }
         ],
         password: [
-          { required: true, message: '请输入密码' }
+          { required: true, message: '请输入密码', trigger: 'blur' }
         ],
         agree: [
-          { required: true, message: '请勾选' }
+          { type: 'boolean', required: true, message: '请勾选', trigger: 'blur' } // async-validator 的默认类型为string
         ]
       }
     }
@@ -54,7 +54,6 @@ export default {
   methods: {
     handleSubmit () {
       this.$refs.form.validate(valid => {
-        console.log(valid)
         if (valid) {
           console.log('success')
         } else {
