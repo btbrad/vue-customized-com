@@ -18,6 +18,8 @@
       <router-link to="/dynamic">dynamicCom</router-link> |
       <router-link to="/treeTest">treeTest</router-link> |
       <router-link to="/inputNumberTest">InputNumberTest</router-link> |
+      <hr>
+      <router-link to="/myAlert">myAlert</router-link> |
     </div>
     <router-view/>
   </div>

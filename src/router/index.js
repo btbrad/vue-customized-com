@@ -16,6 +16,7 @@ const slotTest = () => import('@/test/slot/test.vue')
 const dynamicCom = () => import('@/test/dynamicCom/test.vue')
 const treeTest = () => import('@/views/treeTest.vue')
 const InputNumberTest = () => import('@/views/InputNumberTest.vue')
+const MyAlert = () => import('@/views/myAlert.vue')
 
 Vue.use(VueRouter)
 
@@ -107,6 +108,11 @@ const routes = [
     path: '/inputNumberTest',
     name: 'InputNumberTest',
     component: InputNumberTest
+  },
+  {
+    path: '/myAlert',
+    name: 'MyAlert',
+    component: MyAlert
   }
 ]
 

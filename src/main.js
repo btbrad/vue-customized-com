@@ -5,6 +5,7 @@ import store from './store'
 import Alert from '@/components/alert/alert.js'
 import Cart from '@/components/Cart/cart.js'
 import create from '@/utils/create.js'
+import MyAlert from '@/components/myAlert/index.js'
 
 Vue.config.productionTip = false
 
@@ -13,6 +14,8 @@ Vue.config.productionTip = false
 Vue.config.performance = true
 
 Vue.prototype.$Alert = Alert
+
+Vue.prototype.$MyAlert = MyAlert
 
 Vue.prototype.$addToCart = Cart
 
