@@ -1,5 +1,13 @@
+<!--
+ * @Author: btbrad
+ * @Date: 2020-07-31 23:45:58
+ * @LastEditors: btbrad
+ * @LastEditTime: 2020-07-31 23:52:19
+ * @Description:
+-->
 <template>
-  <div v-if="isShow" class="alert-wrapper">
+  <div v-if="isShow"
+       class="alert-wrapper">
     <p>{{ content }}</p>
   </div>
 </template>
@@ -14,7 +22,7 @@ export default {
     },
     duration: {
       type: [String, Number],
-      default: ''
+      default: 1.5
     }
   },
   data () {
@@ -37,5 +45,4 @@ export default {
 </script>
 
 <style>
-
 </style>

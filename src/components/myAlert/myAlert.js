@@ -12,7 +12,7 @@ class MyAlert {
   }
 
   show () {
-    console.log('组件为', this.component)
+    console.log('组件为', this.component.show)
     this.component.show()
   }
 }
