@@ -1,20 +1,12 @@
-import Alert from './alert.vue'
 import Vue from 'vue'
+import Alert from './alert.vue'
 
-class MyAlert {
-  constructor (props) {
-    this.instance = new Vue({
-      data: props,
-      render: h => h(Alert, { props })
-    })
-    this.component = this.instance
-    console.log('组件为', this.component)
-  }
+const instance = new Vue({
+  render: h => h(Alert)
+})
 
-  show () {
-    console.log('组件为', this.component.show)
-    this.component.show()
-  }
+const component = instance.$mount().$children[0]
+
+export const show = () => {
+  document.body.appendChild(component.$el)
 }
-
-export default MyAlert
