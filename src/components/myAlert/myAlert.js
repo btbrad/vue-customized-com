@@ -9,4 +9,7 @@ const component = instance.$mount().$children[0]
 
 export const show = () => {
   document.body.appendChild(component.$el)
+  setTimeout(() => {
+    document.body.removeChild(component.$el)
+  }, 3000)
 }

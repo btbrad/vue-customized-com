@@ -19,13 +19,14 @@ export default {
       content: 'This Is Alert'
     }
   },
-  mounted () {
-    this.timer = setTimeout(() => {
-      this.$destroy()
-      document.body.removeChild(this.$el)
-      console.log(1111111111111111)
-    }, 3000)
-  },
+  // mounted () {
+  //   this.timer = setTimeout(() => {
+  //     // this.$destroy()
+  //     console.log(this.$el)
+  //     document.body.removeChild(this.$el)
+  //     console.log(1111111111111111)
+  //   }, 3000)
+  // },
   methods: {
     // show () {
     //   console.log(11111111111111111111111)
