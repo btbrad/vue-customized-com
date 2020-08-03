@@ -5,15 +5,13 @@
 //  * @LastEditTime: 2020-08-01 16:23:44
 //  * @Description:
 // -->
-import {
-  show
-} from './myAlert'
+import MyAlert from './myAlert'
 
 // let myAlert = new Alert().component
 // console.log(1111, Alert)
 
 export default {
   show: () => {
-    show()
+    new MyAlert().show()
   }
 }

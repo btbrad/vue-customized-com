@@ -47,18 +47,25 @@ export default {
 
 <style scoped>
 .alert-wrapper {
-  width: 300px;
+  width: 100%;
   min-height: 50px;
-  border: 1px solid #333;
-  position: absolute;
-  top: 30px;
-  left: 50%;
-  transform: translate(-50%, 0);
+  /* position: absolute; */
+  float: left;
+  margin-top: 10px;
+  padding: 5px;
+  /* left: 50%; */
+  /* transform: translate(-50%, 0); */
+}
+p {
+  min-width: 300px;
+  max-width: 500px;
   background: #fff;
   padding: 20px;
   box-sizing: border-box;
   text-align: center;
   font-weight: 700;
   box-shadow: 0 5px 5px #ccc;
+  border: 1px solid #333;
+  margin: 0 auto;
 }
 </style>
