@@ -16,7 +16,7 @@ export default {
   name: 'Alert',
   data () {
     return {
-      content: 'This Is Alert'
+      content: ''
     }
   },
   // mounted () {

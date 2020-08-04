@@ -11,7 +11,7 @@ import MyAlert from './myAlert'
 // console.log(1111, Alert)
 
 export default {
-  show: () => {
-    new MyAlert().show()
+  show: ({ duration = 3000, content = '我是提示框' }) => {
+    new MyAlert().show({ duration, content })
   }
 }

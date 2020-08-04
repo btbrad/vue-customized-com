@@ -2,18 +2,24 @@ import Vue from 'vue'
 import Alert from './alert.vue'
 
 class MyAlert {
-  constructor () {
+  constructor (props) {
     const instance = new Vue({
-      render: h => h(Alert)
+      data () {
+        return {
+          props
+        }
+      },
+      render: h => h(Alert, { props })
     })
 
     this.component = instance.$mount().$children[0]
   }
-  show () {
+  show ({ duration, content }) {
+    this.component.$data.content = content
     document.body.appendChild(this.component.$el)
     setTimeout(() => {
       document.body.removeChild(this.component.$el)
-    }, 3000)
+    }, duration)
   }
 }
 

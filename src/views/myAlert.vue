@@ -8,7 +8,8 @@
 <template>
   <div>
     <h2>MyAlert</h2>
-    <button @click="handleClick">click</button>
+    <button @click="handleClick1">10秒测试</button>
+    <button @click="handleClick2">3秒Alert</button>
   </div>
 </template>
 
@@ -16,8 +17,17 @@
 export default {
   name: 'Alert',
   methods: {
-    handleClick () {
-      this.$MyAlert.show()
+    handleClick1 () {
+      this.$MyAlert.show({
+        content: '测试',
+        duration: 10000
+      })
+    },
+    handleClick2 () {
+      this.$MyAlert.show({
+        content: 'Alert',
+        duration: 3000
+      })
     }
   }
 }
