@@ -9,8 +9,15 @@
 
       <tbody>
           <tr v-for="(data, idx) in tableData" :key="idx">
-            <div class="cube" v-for="({ prop }, index) in headItems" :key="index">
-              <td>{{ data[prop] }}</td>
+            <div class="cube" v-for="(it, index1) in headItems" :key="index1">
+              <td>
+                <template v-if="it.renderFn">
+                  <my-render :row="data" :column="it" :index="idx" :renderFn="it.renderFn"></my-render>
+                </template>
+                <template v-else>
+                  <span>{{ data[it.prop] }}</span>
+                </template>
+              </td>
             </div>
           </tr>
       </tbody>
@@ -19,15 +26,30 @@
 </template>
 
 <script>
+import MyRender from './my-render'
+
 export default {
   name: 'myTable',
+  components: {
+    MyRender
+  },
   props: {
     headItems: {
       type: Array,
       default: () => [
         { label: '姓名', prop: 'name' },
         { label: '年龄', prop: 'age' },
-        { label: '性别', prop: 'gender' }
+        { label: '性别',
+          prop: 'gender',
+          renderFn: (h, { row }) => {
+            console.log(1111, row)
+            if (row.age < 25) {
+              return h('span', '年轻')
+            } else {
+              return h('span', '有经验')
+            }
+          }
+        }
       ]
     },
     tableData: {
