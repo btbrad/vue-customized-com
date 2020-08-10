@@ -42,11 +42,10 @@ export default {
         { label: '性别',
           prop: 'gender',
           renderFn: (h, { row }) => {
-            console.log(1111, row)
             if (row.age < 25) {
-              return h('span', '年轻')
+              return (<span style={{ color: 'green' }}>年轻</span>)
             } else {
-              return h('span', '有经验')
+              return (<span style={{ color: '#f40' }}>大佬</span>)
             }
           }
         }
