@@ -8,18 +8,18 @@
       </thead>
 
       <tbody>
-          <tr v-for="(data, idx) in tableData" :key="idx">
-            <div class="cube" v-for="(it, index1) in headItems" :key="index1">
-              <td>
-                <template v-if="it.renderFn">
-                  <my-render :row="data" :column="it" :index="idx" :renderFn="it.renderFn"></my-render>
-                </template>
-                <template v-else>
-                  <span>{{ data[it.prop] }}</span>
-                </template>
-              </td>
-            </div>
-          </tr>
+        <tr v-for="(data, idx) in tableData" :key="idx">
+          <div class="cube" v-for="(it, index1) in headItems" :key="index1">
+            <td>
+              <template v-if="it.renderFn">
+                <my-render :row="data" :column="it" :index="idx" :renderFn="it.renderFn"></my-render>
+              </template>
+              <template v-else>
+                <span>{{ data[it.prop] }}</span>
+              </template>
+            </td>
+          </div>
+        </tr>
       </tbody>
     </table>
   </div>
@@ -36,28 +36,11 @@ export default {
   props: {
     headItems: {
       type: Array,
-      default: () => [
-        { label: '姓名', prop: 'name' },
-        { label: '年龄', prop: 'age' },
-        { label: '性别',
-          prop: 'gender',
-          renderFn: (h, { row }) => {
-            if (row.age < 25) {
-              return (<span style={{ color: 'green' }}>年轻</span>)
-            } else {
-              return (<span style={{ color: '#f40' }}>大佬</span>)
-            }
-          }
-        }
-      ]
+      default: () => []
     },
     tableData: {
       type: Array,
-      default: () => [
-        { name: 'Michael', age: '29', gender: 'male' },
-        { name: 'Jane', age: '23', gender: 'female' },
-        { name: 'Ryan', age: '27', gender: 'male' }
-      ]
+      default: () => []
     }
   }
 }
@@ -68,6 +51,7 @@ table {
   border: 2px solid #000;
   width: 100%;
   box-sizing: border-box;
+  border-collapse: collapse;
 }
 thead > tr, tbody > tr {
   display: flex;
@@ -82,6 +66,7 @@ th {
   display: flex;
   justify-content: center;
   align-items: center;
+  border-collapse: collapse;
 }
 tr {
   height: 50px;
@@ -100,5 +85,6 @@ td {
   align-items: center;
   border: 1px solid #fff;
   box-sizing: border-box;
+  border-collapse: collapse;
 }
 </style>

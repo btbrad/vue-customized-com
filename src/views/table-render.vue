@@ -4,7 +4,7 @@
     <Table :columns="columns" :data="data"></Table>
     <hr>
     my-tabel
-    <my-table></my-table>
+    <my-table :headItems="headeItems" :tableData="tableData"></my-table>
   </div>
 </template>
 
@@ -214,13 +214,92 @@ export default {
       editName: '', // 第一列输入框
       editAge: '', // 第二列输入框
       editBirthday: '', // 第三列输入框
-      editAddress: '' // 第四列输入框
+      editAddress: '', // 第四列输入框
+      headeItems: [
+        { label: '姓名',
+          prop: 'name',
+          renderFn: (h, { row, index }) => {
+            if (this.editIndex === index) {
+              return (<input value={row.name} onChange={(e) => {
+                row.name = e.target.value
+              }}/>)
+            } else {
+              return (<span>{row.name}</span>)
+            }
+          }
+        },
+        { label: '年龄',
+          prop: 'age',
+          renderFn: (h, { row, index }) => {
+            if (this.editIndex === index) {
+              return (<input value={row.age} onChange={(e) => {
+                row.age = e.target.value
+              }}/>)
+            } else {
+              return (<span>{row.age}</span>)
+            }
+          }
+        },
+        { label: '性别',
+          prop: 'gender',
+          renderFn: (h, { row, index }) => {
+            if (this.editIndex === index) {
+              return (<input value={row.gender} onChange={(e) => {
+                row.gender = e.target.value
+              }}/>)
+            } else {
+              return (<span>{row.gender}</span>)
+            }
+          }
+        },
+        { label: '操作',
+          prop: '',
+          renderFn: (h, { row, index }) => {
+            if (this.editIndex === index) {
+              return (
+                <div>
+                  <button onClick={() => {
+                    this.handleConfirm()
+                  }}>确定</button>
+                  <button onClick={() => {
+                    this.handleCancel()
+                  }}>取消</button>
+                </div>
+              )
+            } else {
+              return (
+                <button onClick={ () => {
+                  this.handleEdit(index)
+                }}>编辑</button>
+              )
+            }
+          }
+        }
+      ],
+      tableData: [
+        { name: 'Michael', age: '29', gender: 'male' },
+        { name: 'Jane', age: '23', gender: 'female' },
+        { name: 'Ryan', age: '27', gender: 'male' }
+      ],
+      originData: [] // 原始数据
+    }
+  },
+  methods: {
+    handleEdit (index) {
+      this.editIndex = index
+      this.originData = JSON.parse(JSON.stringify(this.tableData))
+    },
+    handleCancel () {
+      this.editIndex = -1
+      this.tableData = this.originData
+    },
+    handleConfirm () {
+      this.editIndex = -1
     }
   }
-
 }
 </script>
 
-<style>
+<style scoped>
 
 </style>
