@@ -2,15 +2,20 @@
   <div>
     table组件
     <Table :columns="columns" :data="data"></Table>
+    <hr>
+    my-tabel
+    <my-table></my-table>
   </div>
 </template>
 
 <script>
 import Table from '@/components/table-render/table.vue'
+import MyTable from '@/components/myTable/index'
 
 export default {
   components: {
-    Table
+    Table,
+    MyTable
   },
   data () {
     return {
