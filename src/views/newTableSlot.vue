@@ -48,18 +48,25 @@ export default {
         { prop: 'age', label: '年龄', slot: true },
         { prop: 'gender', label: '性别' },
         { prop: 'oprate', label: '操作', slot: true }
-      ]
+      ],
+      originData: []
     }
   },
   methods: {
     handleEdit (index) {
+      this.originData = JSON.parse(JSON.stringify(this.tableData))
       this.editIndex = index
     },
     handleConfirm () {
-
+      this.editIndex = -1
+      this.$MyAlert.show({
+        content: '修改成功',
+        duration: 2000
+      })
     },
     handleCancel () {
       this.editIndex = -1
+      this.tableData = this.originData
     }
   }
 }
