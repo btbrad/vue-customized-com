@@ -31,15 +31,19 @@
         </div>
       </template>
     </table-slot>
+    <hr>
+    <new-table-slot></new-table-slot>
   </div>
 </template>
 
 <script>
 import TableSlot from '@/components/table-slot/table.vue'
+import NewTableSlot from './newTableSlot'
 
 export default {
   components: {
-    TableSlot
+    TableSlot,
+    NewTableSlot
   },
   data () {
     return {
