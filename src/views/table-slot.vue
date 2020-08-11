@@ -33,17 +33,21 @@
     </table-slot>
     <hr>
     <new-table-slot></new-table-slot>
+    <hr>
+    <new-table-slot-render></new-table-slot-render>
   </div>
 </template>
 
 <script>
 import TableSlot from '@/components/table-slot/table.vue'
 import NewTableSlot from './newTableSlot'
+import NewTableSlotRender from './newTableSlotRender'
 
 export default {
   components: {
     TableSlot,
-    NewTableSlot
+    NewTableSlot,
+    NewTableSlotRender
   },
   data () {
     return {
