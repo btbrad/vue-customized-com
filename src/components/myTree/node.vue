@@ -4,7 +4,7 @@
       <span class="arrow-right" v-if="!expand" @click="toggleCollapse"></span>
       <span class="arrow-down" v-else @click="toggleCollapse"></span>
     </template>
-    <input type="checkbox" :name="node.value" id="" v-model="node.checked">{{ node.label }}
+    <input type="checkbox" :name="node.value" id="" v-model="node.checked" @change="handleCheckbox">{{ node.label }}
     <div v-if="node.children" v-show="expand">
       <tree-node v-for="(item, index) in node.children" :key="index"  :node="item"></tree-node>
     </div>
@@ -28,6 +28,19 @@ export default {
   methods: {
     toggleCollapse (node) {
       this.expand = !this.expand
+    },
+    handleCheckbox () {
+      console.log('1111')
+      this.setValue(this.node)
+      this.$emit('value-change')
+    },
+    setValue (obj) {
+      if (obj.children) {
+        obj.children.forEach(item => {
+          item.checked = obj.checked
+          this.setValue(item)
+        })
+      }
     }
   }
 }

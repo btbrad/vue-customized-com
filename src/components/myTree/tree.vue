@@ -1,7 +1,7 @@
 <template>
   <div class="tree">
     <div class="tree-node" v-for="(item, index) in currentData" :key="index">
-      <tree-node :node="item"></tree-node>
+      <tree-node :node="item" @value-change="handleChange"></tree-node>
     </div>
   </div>
 </template>
@@ -20,12 +20,31 @@ export default {
       default: () => []
     }
   },
-  computed: {
-    currentData () {
-      return this.data.map(item => {
+  data () {
+    return {
+      currentData: []
+    }
+  },
+  created () {
+    let data = JSON.parse(JSON.stringify(this.data))
+    this.formateData(data)
+    this.currentData = data
+  },
+  methods: {
+    formateData (arr) {
+      arr.forEach(item => {
         this.$set(item, 'checked', false)
-        return item
+        if (item.children) {
+          this.formateData(item.children)
+        }
       })
+    },
+    handleChange () {
+      this.currentData.reduce((a, b) => {
+        if (b.checked) {
+
+        }
+      }, [])
     }
   }
 }
