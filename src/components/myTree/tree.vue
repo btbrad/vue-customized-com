@@ -22,13 +22,23 @@ export default {
   },
   data () {
     return {
-      currentData: []
+      currentData: [],
+      result: []
     }
   },
   created () {
     let data = JSON.parse(JSON.stringify(this.data))
     this.formateData(data)
     this.currentData = data
+  },
+  watch: {
+    currentData: {
+      handler (val) {
+        this.result = []
+        this.handleChange(val)
+      },
+      deep: true
+    }
   },
   methods: {
     formateData (arr) {
@@ -39,12 +49,19 @@ export default {
         }
       })
     },
-    handleChange () {
-      this.currentData.reduce((a, b) => {
-        if (b.checked) {
-
+    handleChange (val) {
+      this.collectData(val)
+      this.$emit('change', this.result)
+    },
+    collectData (arr) {
+      arr.forEach(item => {
+        if (item.checked) {
+          this.result.push(item.value)
         }
-      }, [])
+        if (item.children) {
+          this.collectData(item.children)
+        }
+      })
     }
   }
 }

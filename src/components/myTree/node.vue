@@ -40,7 +40,6 @@ export default {
     },
     handleCheckbox () {
       this.setValue(this.node)
-      this.$emit('value-change')
     },
     setValue (obj) {
       if (obj.children) {

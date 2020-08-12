@@ -2,7 +2,8 @@
   <div>
     <i-tree :data="data" :showCheckbox="true"></i-tree>
     <hr>
-    <my-tree :data="treeData"></my-tree>
+    <my-tree :data="treeData" @change="handleTreeChange"></my-tree>
+    <p>选中的节点:{{ result }}</p>
   </div>
 </template>
 
@@ -82,7 +83,13 @@ export default {
             }
           ]
         }
-      ]
+      ],
+      result: ''
+    }
+  },
+  methods: {
+    handleTreeChange (val) {
+      this.result = val
     }
   }
 }
