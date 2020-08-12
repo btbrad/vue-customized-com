@@ -1,6 +1,6 @@
 <template>
   <div class="tree">
-    <div class="tree-node" v-for="(item, index) in data" :key="index">
+    <div class="tree-node" v-for="(item, index) in currentData" :key="index">
       <tree-node :node="item"></tree-node>
     </div>
   </div>
@@ -18,6 +18,14 @@ export default {
     data: {
       type: Array,
       default: () => []
+    }
+  },
+  computed: {
+    currentData () {
+      return this.data.map(item => {
+        this.$set(item, 'checked', false)
+        return item
+      })
     }
   }
 }
