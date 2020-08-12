@@ -25,12 +25,20 @@ export default {
       expand: true
     }
   },
+  watch: {
+    'node.children': {
+      handler (val) {
+        let allChecked = !val.some(child => !child.checked)
+        this.node.checked = allChecked
+      },
+      deep: true
+    }
+  },
   methods: {
     toggleCollapse (node) {
       this.expand = !this.expand
     },
     handleCheckbox () {
-      console.log('1111')
       this.setValue(this.node)
       this.$emit('value-change')
     },
